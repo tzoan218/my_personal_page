@@ -7,7 +7,9 @@ import './App.css';
 const skillNotes = {
   'Python': [], // Add notes like: [{ title: 'Python Basics', pdfPath: '/notes/python-basics.pdf' }]
   'Java & Spring Boot': [],
-  'Machine Learning': [],
+  'Machine Learning': [
+    { title: 'Notes for Understanding Machine Learning', pdfPath: '/notes/ml_notes.pdf' }
+  ],
   'Numerical Analysis': [],
   'DevOps (Docker/K8s)': [],
   'Physics': [
