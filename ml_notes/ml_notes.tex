@@ -27,6 +27,11 @@
 \definecolor{MLTealLight}{HTML}{E0F2F1}% light teal background
 \definecolor{MLGray}{HTML}{455A64}     % dark gray for text accents
 
+
+\definecolor{MLGray1}{HTML}{424242}          % dark gray for title text
+\definecolor{MLGrayLight}{HTML}{E0E0E0}     % very light gray background
+\definecolor{MLGrayFrame}{HTML}{9E9E9E}    
+
 % ---------- Chapter style ----------
 \titleformat{\chapter}[display]
   {\normalfont\huge\bfseries}
@@ -94,6 +99,20 @@
   colback=MLTealLight,
   colframe=MLTeal,
   breakable,
+  #1
+}
+
+
+\newtcolorbox{mlexample1}[1][]{
+  title={\faBook~Example-Recap},
+  fonttitle=\bfseries,
+  coltitle=MLGray1,
+  colback=MLGrayLight,
+  colframe=MLGrayFrame,
+  breakable,
+  enhanced,
+  sharp corners,
+  boxrule=0.7pt,
   #1
 }
 
@@ -370,13 +389,12 @@ The evidence $P(B)$ ensures everything stays a valid probability distribution (s
 \subsection*{Why this matters in Machine Learning}
 
 Bayes' theorem is the foundation of:
-
-\begin{itemize}
-    \item Naive Bayes classifier
-    \item Bayesian Linear Regression
-    \item Bayesian Neural Networks
-    \item All probabilistic and generative models
-\end{itemize}
+%\begin{itemize}
+    Naive Bayes classifier, 
+Bayesian Linear Regression, 
+ Bayesian Neural Networks,
+   All probabilistic and generative models. 
+%\end{itemize}
 
 It formalizes \textbf{learning from data}.  
 We start with a belief (prior), then see data, and update our belief (posterior).
@@ -675,7 +693,7 @@ MLE answers a simple question:
 \end{mlidea}
 
 If $x = (x_1, \dots, x_n)$ is the observed data and $\theta$ is an unknown parameter,
-the MLE estimate is:
+the MLE estimate is \footnote{max $\rightarrow$ what is the highest value. argmax $\rightarrow$ where is the highest value}:
 
 \[
 \hat{\theta}_{\mathrm{MLE}} = \arg\max_{\theta} L(\theta \mid x)
@@ -708,14 +726,14 @@ This is numerically stable and makes optimization easier.
     \item We choose the $\theta$ that best \emph{explains} the data.
 \end{itemize}
 
-This idea lies behind most ML algorithms:
-
-\begin{itemize}
-    \item Linear regression (least squares)
-    \item Logistic regression
-    \item Naive Bayes
-    \item Neural networks (via cross-entropy)
-\end{itemize}
+This idea lies behind most ML algorithms: 
+%
+%\begin{itemize}
+   Linear regression (least squares),
+     Logistic regression, 
+     Naive Bayes, 
+     Neural networks (via cross-entropy).
+%\end{itemize}
 
 All of them optimize a likelihood or its negative log.
 
@@ -922,6 +940,43 @@ Linear regression is therefore both:
     \item a probabilistic parameter estimation problem.
 \end{itemize}
 
+\begin{mlidea}
+\textbf{What is linear regression?}
+
+Linear regression is a simple model that tries to describe a relationship 
+between input variables (features) and an output variable by fitting a 
+straight line (or a hyperplane in higher dimensions).
+
+\begin{itemize}
+    \item You give the model input data $X$ and outputs $y$.
+    \item The model tries to find parameters $\beta$ so that 
+          the prediction $X\beta$ is close to $y$.
+    \item The assumption is that the underlying true relationship is 
+          approximately \emph{linear}.
+\end{itemize}
+
+Geometric view:
+\begin{itemize}
+    \item The model projects $y$ onto the space spanned by the columns of $X$.
+    \item The result is the “best-fitting line’’ in the least-squares sense.
+\end{itemize}
+
+Statistical view:
+\begin{itemize}
+    \item The data is assumed to follow
+          \[
+          y = X\beta + \varepsilon,
+          \]
+          where $\varepsilon$ is random noise with Gaussian distribution.
+    \item Fitting the model means choosing $\beta$ that makes the observed data 
+          most probable.
+\end{itemize}
+
+Linear regression is a fundamental tool because it is easy to interpret, 
+computationally efficient, and the foundation of more advanced models.
+\end{mlidea}
+
+
 % ======================================================
 \section{Logistic Regression: Probabilistic Classification}
 
@@ -1116,8 +1171,315 @@ The bias–variance tradeoff explains:
 low bias \emph{and} low variance.
 \end{center}
 
+\clearpage
+\begin{mlexample1}
+\section*{Understanding Probability, Likelihood, MLE, MAP}
+
+We have a coin, and we toss it $n = 10$ times.  
+We observe:
+
+\[
+x = \text{H H T H H T H H H T}
+\qquad\Rightarrow\qquad
+k = 7 \text{ heads},\; 3 \text{ tails}.
+\]
+
+Let $\theta = P(\text{Heads})$ be the (unknown) probability that the coin lands Heads.
+
+%We use this same experiment to understand:
+%\[
+%\text{Probability} \quad\text{vs.}\quad \text{Likelihood}
+%\quad\text{vs.}\quad \text{MLE}
+%\quad\text{vs.}\quad \text{MAP}.
+%\]
+
+% -------------------------------------------------------------------
+\subsection*{1. Probability: parameter fixed, data random}
+
+Here we assume that the coin bias \emph{is already known}.  
+Suppose:
+
+\[
+\theta = 0.6.
+\]
+
+Then we ask:
+
+\begin{center}
+\emph{“If the coin has $\theta = 0.6$, what is the probability of getting exactly 7 heads in 10 tosses?”}
+\end{center}
+
+This is a binomial probability:
+
+\[
+P(X = 7 \mid \theta = 0.6)
+= \binom{10}{7} (0.6)^7 (0.4)^3.
+\]
+
+Let us break down each part:
+
+\begin{itemize}
+  \item $\binom{10}{7}$ counts how many sequences of 7 heads and 3 tails exist.
+  \item $(0.6)^7$ is the probability of getting Heads 7 times.
+  \item $(0.4)^3$ is the probability of getting Tails 3 times.
+\end{itemize}
+
+A numerical evaluation:
+
+\[
+\binom{10}{7} = 120, 
+\quad
+(0.6)^7 \approx 0.02799,
+\quad
+(0.4)^3 = 0.064.
+\]
+
+Thus:
+
+\[
+P(X=7\mid\theta=0.6)
+= 120 \times 0.02799 \times 0.064
+\approx 0.215.
+\]
+
+So if $\theta = 0.6$, this data occurs with probability about $21.5\%$.
+
+Here:
+\[
+\theta \text{ fixed}, \quad X \text{ random}.
+\]
+
+This is the usual “forward” direction in probability.
+
+% -------------------------------------------------------------------
+\subsection*{2. Likelihood: data fixed, parameter varies}
+
+Now we switch perspectives completely.
+We already saw the data:
+\[
+k=7.
+\]
+
+We treat the data as fixed.  
+Now we ask:
+
+\begin{center}
+\emph{“For this fixed data (7 Heads), how plausible is each possible value of $\theta$?”}
+\end{center}
+
+This is the likelihood:
+
+\[
+L(\theta \mid x)
+= P(x \mid \theta)
+= \binom{10}{7} \theta^7 (1-\theta)^3.
+\]
+
+Key idea:
+
+\begin{itemize}
+  \item The combinatorial factor $\binom{10}{7}$ does \textbf{not} depend on $\theta$.
+  \item So the likelihood is shaped by:
+  \[
+  \theta^7 (1-\theta)^3.
+  \]
+\end{itemize}
+
+Interpretation:
+
+\begin{itemize}
+  \item Data is fixed ($k=7$).
+  \item $\theta$ varies between $0$ and $1$.
+  \item The likelihood is a \emph{score function}, not a probability distribution over $\theta$.
+\end{itemize}
+
+Probability vs Likelihood:
+
+\[
+\text{Probability: fix }\theta, \text{ vary data}.
+\]
+\[
+\text{Likelihood: fix data, vary }\theta.
+\]
+
+% -------------------------------------------------------------------
+\subsection*{3. Bayesian View: Prior, Likelihood, Posterior}
+
+The Bayesian view adds one more ingredient: a \textbf{prior} about $\theta$.
+
+Instead of treating $\theta$ as an unknown but fixed number, we treat it as a
+random variable with its own distribution $P(\theta)$ (our belief \emph{before}
+seeing the data).
+
+Bayes' theorem connects:
+
+\[
+P(\theta \mid x)
+= \frac{P(x \mid \theta)\, P(\theta)}{P(x)}.
+\]
+
+In this formula:
+
+\begin{itemize}
+  \item $P(\theta)$ is the \textbf{prior}: what we believe about $\theta$ before seeing data.
+  \item $P(x \mid \theta)$ is the \textbf{likelihood}: how well each $\theta$ explains the data.
+  \item $P(\theta \mid x)$ is the \textbf{posterior}: updated belief about $\theta$ after seeing data.
+  \item $P(x)$ is the \textbf{evidence}: a normalizing constant to make probabilities sum to 1.
+\end{itemize}
+
+We often write this in proportional form:
+
+\[
+P(\theta \mid x) \propto P(x \mid \theta)\, P(\theta).
+\]
+
+So in words:
+
+\begin{center}
+\textbf{Posterior = Likelihood $\times$ Prior (up to a constant).}
+\end{center}
+
+The likelihood from step~2 is what \emph{transforms} the prior into the posterior.
+
+% -------------------------------------------------------------------
+\subsection*{4. Maximum Likelihood Estimation (MLE)}
+
+MLE asks a simple question:
+
+\begin{center}
+\emph{“Which value of $\theta$ makes the observed data (7 heads) most likely?”}
+\end{center}
+
+We take the likelihood:
+\[
+L(\theta \mid x) = \theta^7 (1-\theta)^3,
+\]
+and choose the $\theta$ that makes this expression as large as possible:
+
+\[
+\hat{\theta}_{\mathrm{MLE}}
+= \arg\max_{\theta} \theta^7 (1-\theta)^3.
+\]
+
+For the binomial model, the answer is always:
+\[
+\hat{\theta}_{\mathrm{MLE}} = \frac{k}{n}.
+\]
+
+Here:
+\[
+\hat{\theta}_{\mathrm{MLE}} = \frac{7}{10} = 0.7.
+\]
+
+\textbf{Meaning:}  
+MLE simply uses the data. It says:
+
+\begin{center}
+\emph{“You saw heads 70\% of the time.  
+So my best estimate is $\theta = 0.7$.”}
+\end{center}
+
+\subsection*{5. Bayesian Inference and MAP}
+
+The Bayesian approach adds one more ingredient: a \textbf{prior belief} about $\theta$.
+
+Suppose our prior is:
+\[
+\theta \sim \mathrm{Beta}(5,5),
+\]
+which expresses the idea that the coin is probably close to fair ($\theta \approx 0.5$).\footnote{
+\textbf{About the Beta distribution and the meaning of $\alpha$ and $\beta$.}
+
+The \emph{Beta distribution} is a probability distribution defined on the interval
+$[0,1]$. It is widely used as a prior for unknown probabilities such as the bias
+$\theta$ of a coin, because it can represent many shapes: peaked, flat, symmetric,
+or skewed. It is written
+\[
+\theta \sim \mathrm{Beta}(\alpha,\beta),
+\]
+where the two parameters $\alpha$ and $\beta$ control the shape.
+
+A simple and intuitive interpretation is:
+\begin{itemize}
+    \item $\alpha$ behaves like a ``prior count of heads'' $+ 1$,
+    \item $\beta$ behaves like a ``prior count of tails'' $+ 1$.
+\end{itemize}
+
+Thus, a Beta$(\alpha,\beta)$ prior acts as if, \emph{before observing any real
+data}, we had already seen:
+\[
+\alpha - 1 \text{ imaginary heads}, \qquad \beta - 1 \text{ imaginary tails}.
+\]
+
+For example, the prior
+\[
+\mathrm{Beta}(5,5)
+\]
+acts as if we had already seen $4$ heads and $4$ tails. This expresses a belief
+that the coin is probably close to fair ($\theta \approx 0.5$), but we are not
+completely certain.
+
+The Beta distribution is important because it is a \emph{conjugate prior} for the
+binomial model: if the prior is Beta$(\alpha,\beta)$ and we observe $k$ heads and
+$n-k$ tails, then the posterior is also a Beta distribution:
+\[
+\theta \mid x \sim \mathrm{Beta}(\alpha + k,\; \beta + n - k).
+\]
+
+This makes Bayesian updating very simple: we just add the new counts to the old
+ones. In our example:
+\[
+\mathrm{Beta}(5,5) \xrightarrow{k=7} \mathrm{Beta}(12,8).
+\]
+
+The updated parameters $\alpha'=12$ and $\beta'=8$ summarize how our prior belief
+and the new data combine to form the posterior.
+}
 
 
+After seeing the data (7 heads out of 10), the posterior becomes:
+\[
+\theta \mid x \sim \mathrm{Beta}(12,8).
+\]
+
+\subsubsection*{MAP estimate}
+
+MAP chooses the value of $\theta$ that is most probable under the posterior:
+
+\[
+\hat{\theta}_{\mathrm{MAP}}
+= \frac{\alpha' - 1}{\alpha' + \beta' - 2}
+= \frac{12 - 1}{12 + 8 - 2}
+= \frac{11}{18}
+\approx 0.611.
+\]
+
+\textbf{Meaning:}
+
+\begin{itemize}
+    \item The data pushes the estimate toward $0.7$.
+    \item The prior pulls the estimate toward $0.5$.
+\end{itemize}
+
+So MAP becomes:
+\[
+\text{something between } 0.5 \text{ and } 0.7,
+\]
+which here is $\approx 0.611$.
+
+MAP = “\textbf{update your belief by mixing prior + data}”.
+
+If the prior were weak (e.g.\ Beta(1,1)), MAP would be almost the same as MLE.
+
+
+% -------------------------------------------------------------------
+\subsection*{6. Summary}
+
+\begin{itemize} \item \textbf{Probability} $P(x\mid\theta)$: given a model, what data is expected? \item \textbf{Likelihood} $L(\theta\mid x)$: given data, how plausible is each parameter? \item \textbf{MLE}: maximize likelihood (data only). \item \textbf{Bayesian Update}: Posterior $\propto$ Likelihood $\times$ Prior. \item \textbf{MAP}: maximize posterior = MLE + prior information. \end{itemize}
+
+
+
+\end{mlexample1}
 
 
 

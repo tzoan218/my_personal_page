@@ -16,21 +16,21 @@
 \contentsline {section}{\numberline {1.5}Bayes' Theorem: Updating Beliefs from Data}{7}{}%
 \contentsline {subsection}{\numberline {1.5.1}Formula}{7}{}%
 \contentsline {section}{\numberline {1.6}Likelihood}{8}{}%
-\contentsline {section}{\numberline {1.7}Probability Distributions: Shape of Data}{11}{}%
+\contentsline {section}{\numberline {1.7}Probability Distributions: Shape of Data}{10}{}%
 \contentsline {subsection}{\numberline {1.7.1}Discrete Distributions}{11}{}%
 \contentsline {paragraph}{Bernoulli Distribution}{11}{}%
 \contentsline {paragraph}{Binomial Distribution}{11}{}%
-\contentsline {paragraph}{Poisson Distribution}{12}{}%
+\contentsline {paragraph}{Poisson Distribution}{11}{}%
 \contentsline {subsection}{\numberline {1.7.2}Continuous Distributions}{12}{}%
 \contentsline {paragraph}{Gaussian (Normal Distribution)}{12}{}%
 \contentsline {paragraph}{Exponential Distribution}{12}{}%
-\contentsline {paragraph}{Multivariate Gaussian}{13}{}%
+\contentsline {paragraph}{Multivariate Gaussian}{12}{}%
 \contentsline {section}{\numberline {1.8}Statistical Inference: Learning Parameters From Data}{13}{}%
-\contentsline {subsection}{\numberline {1.8.1}Maximum Likelihood Estimation (MLE)}{14}{}%
-\contentsline {subsection}{\numberline {1.8.2}Maximum A Posteriori Estimation (MAP)}{15}{}%
+\contentsline {subsection}{\numberline {1.8.1}Maximum Likelihood Estimation (MLE)}{13}{}%
+\contentsline {subsection}{\numberline {1.8.2}Maximum A Posteriori Estimation (MAP)}{14}{}%
 \contentsline {section}{\numberline {1.9}Linear Regression: Statistical Interpretation}{16}{}%
 \contentsline {section}{\numberline {1.10}Logistic Regression: Probabilistic Classification}{18}{}%
 \contentsline {section}{\numberline {1.11}Bias–Variance Tradeoff: Why Models Fail}{20}{}%
-\contentsline {chapter}{\numberline {2}Python for Machine Learning}{23}{}%
-\contentsline {chapter}{\numberline {3}Machine Learning Algorithms}{24}{}%
-\contentsline {chapter}{\numberline {4}Neural Networks \& Deep Learning}{25}{}%
+\contentsline {chapter}{\numberline {2}Python for Machine Learning}{28}{}%
+\contentsline {chapter}{\numberline {3}Machine Learning Algorithms}{29}{}%
+\contentsline {chapter}{\numberline {4}Neural Networks \& Deep Learning}{30}{}%
