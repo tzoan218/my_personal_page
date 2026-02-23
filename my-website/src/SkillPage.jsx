@@ -6,6 +6,7 @@ import './App.css';
 // Each skill can have multiple notes
 const skillNotes = {
   'Python': [
+    { title: 'Python notes', pdfPath: '/notes/python.pdf' },
     { title: 'Big Data Analytics with Hadoop', pdfPath: '/notes/spark.pdf' }
   ],
   'Java & Spring Boot': [
