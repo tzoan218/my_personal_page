@@ -106,7 +106,7 @@ function ProjectsPage() {
           </h3>
           <p style={{ marginBottom: "12px", lineHeight: "1.6" }}>
             Do not need to memorize the words, just play some games and learn them! 
-            A full stack app to compute the inflationary cosmological perturbations for n fields
+            A full stack app to help you learn French vocabulary.
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
             <a
