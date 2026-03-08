@@ -71,9 +71,6 @@ function HomePage() {
           You can also visit the <Link to="/about">About</Link> page to learn more about my work and experience.
           Visit my <Link to="/projects">Projects</Link> and <Link to="/publications">Publications</Link> to explore further.
         </p>
-        <p>
-          If you would like to see more about my work, you can also visit my <a href="https://github.com/tzoanphys" target="_blank" rel="noopener noreferrer">GitHub profile</a>.
-        </p>
       </div>
 
       <div className="home-bottom-row">
