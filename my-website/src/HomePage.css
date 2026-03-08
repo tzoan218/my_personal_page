@@ -1,0 +1,209 @@
+/* Artistic Home page */
+
+.home-page {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.home-welcome-title {
+  font-family: "Georgia", "Times New Roman", serif;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: #00F5C4;
+  margin: 0 0 1.5rem;
+  position: relative;
+  display: block;
+  text-align: center;
+}
+
+.home-welcome-title::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00F5C4, transparent);
+  border-radius: 1px;
+}
+
+.home-intro {
+  max-width: 580px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.85;
+  font-size: 1.05rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.home-intro p {
+  margin-bottom: 1em;
+}
+
+.home-intro p:last-of-type {
+  margin-bottom: 0;
+}
+
+.home-intro a {
+  color: #00F5C4;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 245, 196, 0.4);
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.home-intro a:hover {
+  color: #00ffd5;
+  border-bottom-color: #00F5C4;
+}
+
+/* Bottom row: News (left) + Calendar (right) */
+.home-bottom-row {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(0, 245, 196, 0.15);
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.home-news-section {
+  flex: 1;
+  min-width: 280px;
+  max-width: 520px;
+}
+
+.home-news-title {
+  font-family: "Georgia", serif;
+  font-size: 1.25rem;
+  letter-spacing: 0.12em;
+  color: #00F5C4;
+  margin: 0 0 1.25rem;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+/* Single big News box */
+.home-news-box {
+  background: linear-gradient(145deg, rgba(0, 245, 196, 0.08), rgba(0, 137, 122, 0.06));
+  border: 1px solid rgba(0, 245, 196, 0.25);
+  border-radius: 16px;
+  padding: 1.75rem;
+  text-align: left;
+  min-height: 180px;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.home-news-box:hover {
+  box-shadow: 0 12px 32px rgba(0, 245, 196, 0.15);
+  border-color: rgba(0, 245, 196, 0.35);
+}
+
+.home-news-box-date {
+  font-size: 0.9rem;
+  color: rgba(0, 245, 196, 0.95);
+  margin-bottom: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.home-news-box-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+  margin: 0 0 0.75rem;
+  line-height: 1.35;
+}
+
+.home-news-box-link {
+  display: inline-block;
+  color: #00F5C4;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid rgba(0, 245, 196, 0.5);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.home-news-box-link:hover {
+  color: #00ffd5;
+  border-bottom-color: #00F5C4;
+}
+
+/* Calendar - end of right */
+.home-calendar-wrap {
+  flex-shrink: 0;
+  align-self: flex-end;
+}
+
+.home-calendar {
+  background: linear-gradient(160deg, rgba(17, 17, 17, 0.95), rgba(31, 31, 31, 0.98));
+  border: 1px solid rgba(0, 245, 196, 0.25);
+  border-radius: 16px;
+  padding: 1.25rem;
+  min-width: 280px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+.home-calendar-header {
+  text-align: center;
+  font-family: "Georgia", serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+  color: #00F5C4;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(0, 245, 196, 0.2);
+}
+
+.home-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  font-size: 0.85rem;
+}
+
+.home-calendar-weekday {
+  text-align: center;
+  color: rgba(0, 245, 196, 0.7);
+  font-weight: 600;
+  padding: 4px 0;
+}
+
+.home-calendar-day {
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.home-calendar-day.other-month {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.home-calendar-day.today {
+  background: rgba(0, 245, 196, 0.25);
+  color: #00F5C4;
+  font-weight: 600;
+}
+
+@media (max-width: 700px) {
+  .home-bottom-row {
+    flex-direction: column;
+  }
+  .home-news-section {
+    max-width: 100%;
+  }
+  .home-calendar-wrap {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .home-calendar {
+    min-width: 260px;
+  }
+}

@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { useLocation, Link, Routes, Route } from 'react-router-dom';
 import './App.css';
 import SkillPage from './SkillPage';
+import HomePage from './HomePage';
 import AboutPage from './AboutPage';
-import ExperiencePage from './ExperiencePage';
-import EducationPage from './EducationPage';
+import CareerPage from './CareerPage';
 import ProjectsPage from './ProjectsPage';
 import PublicationsPage from './PublicationsPage';
 import ContactPage from './ContactPage';
@@ -129,7 +129,7 @@ function App() {
 
         {/* Fields of Interest Section */}
         <div style={{ marginTop: "10px" }}>
-          {['Physics', 'Python', 'Machine Learning', 'Java & Spring Boot', 'Numerical Analysis', 'DevOps (Docker/K8s)'].map((skill) => {
+          {['Physics', 'Python', 'Machine Learning', 'Java & Spring Boot', 'Numerical Analysis'].map((skill) => {
             const skillUrl = `/skill/${encodeURIComponent(skill)}`;
             const isActive = location.pathname === skillUrl;
             return (
@@ -238,14 +238,28 @@ function App() {
             to="/"
             style={navBarItemStyle('/')}
             onMouseEnter={(e) => {
-              const isActive = location.pathname === '/' && !location.pathname.startsWith('/skill');
-              if (!isActive) {
+              if (location.pathname !== '/') {
                 e.target.style.backgroundColor = "rgba(0, 245, 196, 0.1)";
               }
             }}
             onMouseLeave={(e) => {
-              const isActive = location.pathname === '/' && !location.pathname.startsWith('/skill');
-              if (!isActive) {
+              if (location.pathname !== '/') {
+                e.target.style.backgroundColor = "transparent";
+              }
+            }}
+          >
+            Home
+          </Link>
+          <Link
+            to="/about"
+            style={navBarItemStyle('/about')}
+            onMouseEnter={(e) => {
+              if (location.pathname !== '/about') {
+                e.target.style.backgroundColor = "rgba(0, 245, 196, 0.1)";
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (location.pathname !== '/about') {
                 e.target.style.backgroundColor = "transparent";
               }
             }}
@@ -253,36 +267,20 @@ function App() {
             About
           </Link>
           <Link
-            to="/workingexperience"
-            style={navBarItemStyle('/workingexperience')}
+            to="/career"
+            style={navBarItemStyle('/career')}
             onMouseEnter={(e) => {
-              if (location.pathname !== '/workingexperience') {
+              if (location.pathname !== '/career') {
                 e.target.style.backgroundColor = "rgba(0, 245, 196, 0.1)";
               }
             }}
             onMouseLeave={(e) => {
-              if (location.pathname !== '/workingexperience') {
+              if (location.pathname !== '/career') {
                 e.target.style.backgroundColor = "transparent";
               }
             }}
           >
-            Working Experience
-          </Link>
-          <Link
-            to="/education"
-            style={navBarItemStyle('/education')}
-            onMouseEnter={(e) => {
-              if (location.pathname !== '/education') {
-                e.target.style.backgroundColor = "rgba(0, 245, 196, 0.1)";
-              }
-            }}
-            onMouseLeave={(e) => {
-              if (location.pathname !== '/education') {
-                e.target.style.backgroundColor = "transparent";
-              }
-            }}
-          >
-            Education
+            Experience &amp; Education
           </Link>
           <Link
             to="/projects"
@@ -350,12 +348,12 @@ function App() {
         >
           <Routes>
             <Route path="/skill/:skillName" element={<SkillPage />} />
-            <Route path="/workingexperience" element={<ExperiencePage />} />
-            <Route path="/education" element={<EducationPage />} />
+            <Route path="/" element={<HomePage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/career" element={<CareerPage />} />
             <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/publications" element={<PublicationsPage />} />
             <Route path="/contact" element={<ContactPage />} />
-            <Route path="/" element={<AboutPage />} />
           </Routes>
         </div>
       </div>

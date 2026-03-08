@@ -16,7 +16,6 @@ const skillNotes = {
     { title: 'Notes for Understanding Machine Learning', pdfPath: '/notes/ml_notes.pdf' }
   ],
   'Numerical Analysis': [],
-  'DevOps (Docker/K8s)': [],
   'Physics': [
     { title: 'No-Scale Supergravity Notes', pdfPath: '/notes/no-scale-notes.pdf' }
   ]

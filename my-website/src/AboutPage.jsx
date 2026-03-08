@@ -57,8 +57,16 @@ function AboutPage() {
               fontSize: "18px"
             }}
           >
-           Hello! Welcome to my personal website. I'm a researcher in theoretical physics and a developer working with Python, Java, and machine learning. I enjoy building complete, reliable systems and learning new things along the way.
-           Here you'll find my publications, projects, and notes from my work and interests.
+            I am a physicist with a PhD in cosmology and gravitational waves and working experience in software development and machine learning.
+          </p>
+          <p style={{ margin: "1em 0 0", lineHeight: "1.8", fontSize: "18px" }}>
+            My work focuses on building and developing tools for scientific, educational applications. I have experience in coding such as Python, Fortran and Java. I am excited about exploring machine learning frameworks, and cloud infrastructure.
+          </p>
+          <p style={{ margin: "1em 0 0", lineHeight: "1.8", fontSize: "18px" }}>
+            I am interested in the intersection of research, software engineering, and artificial intelligence, and I enjoy developing codes.
+          </p>
+          <p style={{ margin: "1em 0 0", lineHeight: "1.8", fontSize: "18px" }}>
+            If you would like to see more about my work, you can also visit my <a href="https://github.com/tzoanphys" target="_blank" rel="noopener noreferrer" style={{ color: "#00F5C4", textDecoration: "none" }}>GitHub profile</a>.
           </p>
         </div>
       </div>
