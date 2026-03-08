@@ -80,56 +80,111 @@
 .home-news-title {
   font-family: "Georgia", serif;
   font-size: 1.25rem;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.2em;
   color: #00F5C4;
-  margin: 0 0 1.25rem;
+  margin: 0 0 1rem;
   text-transform: uppercase;
   font-weight: 400;
+  position: relative;
+  padding-bottom: 0.5rem;
 }
 
-/* Single big News box */
-.home-news-box {
-  background: linear-gradient(145deg, rgba(0, 245, 196, 0.08), rgba(0, 137, 122, 0.06));
+.home-news-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, #00F5C4, transparent);
+  border-radius: 1px;
+}
+
+/* Small scrollable news window – scroll down to see more items */
+.home-news-window {
+  height: 200px;
+  max-height: 200px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 10px 8px 10px 12px;
   border: 1px solid rgba(0, 245, 196, 0.25);
-  border-radius: 16px;
-  padding: 1.75rem;
+  border-right: 3px solid #00F5C4;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(18, 22, 22, 0.95) 0%, rgba(8, 10, 10, 0.98) 100%);
+  box-shadow: inset 0 1px 0 rgba(0, 245, 196, 0.06), 0 8px 24px rgba(0, 0, 0, 0.35);
+}
+
+.home-news-window::-webkit-scrollbar {
+  width: 10px;
+}
+
+.home-news-window::-webkit-scrollbar-track {
+  background: rgba(20, 24, 24, 0.9);
+  border-radius: 0 10px 10px 0;
+}
+
+.home-news-window::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(0, 245, 196, 0.4), rgba(0, 245, 196, 0.25));
+  border-radius: 5px;
+}
+
+.home-news-window::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 245, 196, 0.55);
+}
+
+/* News item card – stable date per item; compact and stylish */
+.home-news-box {
+  background: linear-gradient(135deg, rgba(0, 245, 196, 0.06) 0%, rgba(0, 137, 122, 0.03) 100%);
+  border: 1px solid rgba(0, 245, 196, 0.22);
+  border-left: 3px solid #00F5C4;
+  border-radius: 10px;
+  padding: 0.7rem 1rem 0.75rem 1rem;
   text-align: left;
-  min-height: 180px;
-  transition: box-shadow 0.2s, border-color 0.2s;
+  margin-bottom: 0.75rem;
+  transition: box-shadow 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+}
+
+.home-news-box:last-child {
+  margin-bottom: 0.5rem;
 }
 
 .home-news-box:hover {
-  box-shadow: 0 12px 32px rgba(0, 245, 196, 0.15);
-  border-color: rgba(0, 245, 196, 0.35);
+  box-shadow: 0 4px 16px rgba(0, 245, 196, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  border-color: rgba(0, 245, 196, 0.4);
 }
 
 .home-news-box-date {
-  font-size: 0.9rem;
-  color: rgba(0, 245, 196, 0.95);
-  margin-bottom: 0.75rem;
-  letter-spacing: 0.05em;
+  font-size: 0.75rem;
+  color: rgba(0, 245, 196, 0.9);
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.08em;
+  font-weight: 500;
+  text-transform: uppercase;
 }
 
 .home-news-box-title {
-  font-size: 1.25rem;
+  font-size: 0.98rem;
   font-weight: 600;
-  color: #fff;
-  margin: 0 0 0.75rem;
+  color: rgba(255, 255, 255, 0.96);
+  margin: 0 0 0.35rem;
   line-height: 1.35;
+  letter-spacing: 0.01em;
 }
 
 .home-news-box-link {
   display: inline-block;
   color: #00F5C4;
   text-decoration: none;
+  font-size: 0.9rem;
   font-weight: 500;
-  border-bottom: 1px solid rgba(0, 245, 196, 0.5);
-  transition: color 0.2s, border-color 0.2s;
+  border-bottom: 1px solid rgba(0, 245, 196, 0.45);
+  transition: color 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
 }
 
 .home-news-box-link:hover {
   color: #00ffd5;
   border-bottom-color: #00F5C4;
+  opacity: 1;
 }
 
 /* Calendar - end of right */

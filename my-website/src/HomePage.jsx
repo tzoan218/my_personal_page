@@ -43,17 +43,19 @@ function useCalendarGrid() {
   }, []);
 }
 
-function formatToday() {
-  const d = new Date();
-  const day = d.getDate();
-  const month = MONTHS[d.getMonth()];
-  const year = d.getFullYear();
-  return `${day} ${month} ${year}`;
-}
+/* News items: each has a stable (fixed) date - does not change daily */
+const NEWS_ITEMS = [
+  {
+    date: "8 March 2026",
+    title: "New project finished – Learning French",
+    linkText: "Look my project",
+    linkTo: "/projects"
+  }/*,...
+  /* Add more items here as new news; dates stay fixed. */
+];
 
 function HomePage() {
   const calendar = useCalendarGrid();
-  const todayStr = formatToday();
 
   return (
     <div className="home-page">
@@ -76,10 +78,14 @@ function HomePage() {
       <div className="home-bottom-row">
         <section className="home-news-section">
           <h3 className="home-news-title">News</h3>
-          <div className="home-news-box">
-            <div className="home-news-box-date">{todayStr}</div>
-            <h4 className="home-news-box-title">New project finished – Learning French</h4>
-            <Link to="/projects" className="home-news-box-link">Look my project</Link>
+          <div className="home-news-window">
+            {NEWS_ITEMS.map((item, i) => (
+              <div key={i} className="home-news-box">
+                <div className="home-news-box-date">{item.date}</div>
+                <h4 className="home-news-box-title">{item.title}</h4>
+                <Link to={item.linkTo} className="home-news-box-link">{item.linkText}</Link>
+              </div>
+            ))}
           </div>
         </section>
 
