@@ -21,75 +21,121 @@ function ProjectsPage() {
             borderRadius: "4px"
           }}
         >
-          <h3 style={{ color: "#00F5C4", marginTop: 0, marginBottom: "12px" }}>
-            Cosmological Perturbations
-          </h3>
-          <p style={{ marginBottom: "12px", lineHeight: "1.6" }}>
-            A full stack app to compute the inflationary cosmological perturbations for n fields
-          </p>
-          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+          <div style={{ display: "flex", gap: "20px", alignItems: "flex-start", flexWrap: "wrap" }}>
             <a
               href="http://cosmology.ioanna-stamou.com"
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                color: "#00F5C4",
+                flexShrink: 0,
+                display: "block",
                 textDecoration: "none",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                fontSize: "16px",
-                transition: "all 0.3s ease"
+                borderRadius: "10px",
+                overflow: "hidden",
+                border: "2px solid rgba(0, 245, 196, 0.35)",
+                boxShadow: "0 4px 12px rgba(0, 245, 196, 0.15)",
+                transition: "box-shadow 0.25s ease, border-color 0.25s ease"
               }}
               onMouseEnter={(e) => {
-                e.target.style.textDecoration = "underline";
+                e.currentTarget.style.boxShadow = "0 6px 20px rgba(0, 245, 196, 0.25)";
+                e.currentTarget.style.borderColor = "rgba(0, 245, 196, 0.6)";
               }}
               onMouseLeave={(e) => {
-                e.target.style.textDecoration = "none";
+                e.currentTarget.style.boxShadow = "0 4px 12px rgba(0, 245, 196, 0.15)";
+                e.currentTarget.style.borderColor = "rgba(0, 245, 196, 0.35)";
               }}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                fill="currentColor"
-                viewBox="0 0 24 24"
+              <div
+                style={{
+                  width: "180px",
+                  height: "120px",
+                  overflow: "hidden"
+                }}
               >
-                <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/>
-              </svg>
-              Project's Site
+                <img
+                  src="/cosmological-perturbations.png"
+                  alt="Cosmological Perturbations"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "center top"
+                  }}
+                />
+              </div>
             </a>
-            <a
-              href="https://cosmopetr.netlify.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                color: "#00F5C4",
-                textDecoration: "none",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                fontSize: "16px",
-                transition: "all 0.3s ease"
-              }}
-              onMouseEnter={(e) => {
-                e.target.style.textDecoration = "underline";
-              }}
-              onMouseLeave={(e) => {
-                e.target.style.textDecoration = "none";
-              }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/>
-              </svg>
-              (Or alternatively)
-            </a>
+            <div style={{ flex: "1", minWidth: "200px" }}>
+              <h3 style={{ color: "#00F5C4", marginTop: 0, marginBottom: "12px" }}>
+                Cosmological Perturbations
+              </h3>
+              <p style={{ marginBottom: "12px", lineHeight: "1.6" }}>
+                A full stack app to compute the inflationary cosmological perturbations for n fields
+              </p>
+              <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+                <a
+                  href="http://cosmology.ioanna-stamou.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    color: "#00F5C4",
+                    textDecoration: "none",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    fontSize: "16px",
+                    transition: "all 0.3s ease"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.textDecoration = "underline";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.textDecoration = "none";
+                  }}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/>
+                  </svg>
+                  Project's Site
+                </a>
+                <a
+                  href="https://cosmopetr.netlify.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    color: "#00F5C4",
+                    textDecoration: "none",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    fontSize: "16px",
+                    transition: "all 0.3s ease"
+                  }}
+                  onMouseEnter={(e) => {
+                    e.target.style.textDecoration = "underline";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.target.style.textDecoration = "none";
+                  }}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/>
+                  </svg>
+                  (Or alternatively)
+                </a>
+              </div>
+            </div>
           </div>
         </div>
         <div
@@ -101,45 +147,89 @@ function ProjectsPage() {
             borderRadius: "4px"
           }}
         >
-          <h3 style={{ color: "#00F5C4", marginTop: 0, marginBottom: "12px" }}>
-            Learning French Vocabulary
-          </h3>
-          <p style={{ marginBottom: "12px", lineHeight: "1.6" }}>
-            Do not need to memorize the words, just play some games and learn them! 
-            A full stack app to help you learn French vocabulary.
-          </p>
-          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+          <div style={{ display: "flex", gap: "20px", alignItems: "flex-start", flexWrap: "wrap" }}>
             <a
               href="https://learning-french.ioanna-stamou.com"
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                color: "#00F5C4",
+                flexShrink: 0,
+                display: "block",
                 textDecoration: "none",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                fontSize: "16px",
-                transition: "all 0.3s ease"
+                borderRadius: "10px",
+                overflow: "hidden",
+                border: "2px solid rgba(0, 245, 196, 0.35)",
+                boxShadow: "0 4px 12px rgba(0, 245, 196, 0.15)",
+                transition: "box-shadow 0.25s ease, border-color 0.25s ease"
               }}
               onMouseEnter={(e) => {
-                e.target.style.textDecoration = "underline";
+                e.currentTarget.style.boxShadow = "0 6px 20px rgba(0, 245, 196, 0.25)";
+                e.currentTarget.style.borderColor = "rgba(0, 245, 196, 0.6)";
               }}
               onMouseLeave={(e) => {
-                e.target.style.textDecoration = "none";
+                e.currentTarget.style.boxShadow = "0 4px 12px rgba(0, 245, 196, 0.15)";
+                e.currentTarget.style.borderColor = "rgba(0, 245, 196, 0.35)";
               }}
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                fill="currentColor"
-                viewBox="0 0 24 24"
+              <div
+                style={{
+                  width: "180px",
+                  height: "120px",
+                  overflow: "hidden"
+                }}
               >
-                <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/>
-              </svg>
-              Project's Site
+                <img
+                  src="/learning-french-vocabulary.png"
+                  alt="Learning French Vocabulary"
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    objectPosition: "center top"
+                  }}
+                />
+              </div>
             </a>
+            <div style={{ flex: "1", minWidth: "200px" }}>
+              <h3 style={{ color: "#00F5C4", marginTop: 0, marginBottom: "12px" }}>
+                Learning French Vocabulary
+              </h3>
+              <p style={{ marginBottom: "12px", lineHeight: "1.6" }}>
+                Do not need to memorize the words, just play some games and learn them! 
+                A full stack app to help you learn French vocabulary.
+              </p>
+              <a
+                href="https://learning-french.ioanna-stamou.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  color: "#00F5C4",
+                  textDecoration: "none",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  fontSize: "16px",
+                  transition: "all 0.3s ease"
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.textDecoration = "underline";
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.textDecoration = "none";
+                }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="20"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/>
+                </svg>
+                Project's Site
+              </a>
+            </div>
           </div>
         </div>
         <div
