@@ -50,7 +50,8 @@ const NEWS_ITEMS = [
     title: "New project finished – Learning French",
     linkText: "Look my project",
     linkTo: "/projects"
-  }/*,...
+  },
+  /*,...
   /* Add more items here as new news; dates stay fixed. */
 ];
 

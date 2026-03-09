@@ -213,7 +213,7 @@ function App() {
               fontSize: "18px"
             }}
           >
-            Researcher • Software/ML
+            Physicist • Software Engineer • Machine Learning
           </h2>
         </div>
 
