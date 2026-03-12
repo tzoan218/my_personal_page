@@ -60,7 +60,7 @@ function AboutPage() {
             I am a physicist with a PhD in cosmology and gravitational waves and working experience in software development and machine learning.
           </p>
           <p style={{ margin: "1em 0 0", lineHeight: "1.8", fontSize: "18px" }}>
-            My work focuses on building and developing tools for scientific, educational applications. I have experience in coding such as Python, Fortran and Java. I am excited about exploring machine learning frameworks, and cloud infrastructure.
+            My work focuses on building and developing tools for scientific and educational applications. I have experience in coding such as Python, Fortran and Java. I am excited about exploring machine learning frameworks, and cloud infrastructure.
           </p>
           <p style={{ margin: "1em 0 0", lineHeight: "1.8", fontSize: "18px" }}>
             I am interested in the intersection of research, software engineering, and artificial intelligence, and I enjoy developing codes.

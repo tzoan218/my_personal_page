@@ -68,7 +68,7 @@ function HomePage() {
           I am Ioanna Stamou, a researcher working across physics, software, and machine learning.
         </p>
         <p>
-          This website presents my background, projects, and publications.
+          This website presents my background, notes, projects, and publications.
         </p>
         <p>
           You can also visit the <Link to="/about">About</Link> page to learn more about my work and experience.
