@@ -294,10 +294,10 @@ function ProjectsPage() {
             BWithB
           </h3>
           <p style={{ marginBottom: "12px", lineHeight: "1.6" }}>
-            A full-stack application built with Java and TypeScript.
+            A full-stack application which is built through many AI agents.
           </p>
           <a
-            href="https://github.com/PetraSt/BedsWithBenefits"
+            href="https://github.com/tzoanphys/ai-coding-power-demo"
             target="_blank"
             rel="noopener noreferrer"
             style={{
