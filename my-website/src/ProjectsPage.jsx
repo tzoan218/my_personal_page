@@ -245,7 +245,7 @@ function ProjectsPage() {
             Map Measurement  
           </h3>
           <p style={{ marginBottom: "12px", lineHeight: "1.6" }}>
-             A full-stack app that measures length and area on a map.
+             A full-stack app that measures length and area on a map. 
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
             <a
@@ -294,7 +294,7 @@ function ProjectsPage() {
             BWithB
           </h3>
           <p style={{ marginBottom: "12px", lineHeight: "1.6" }}>
-            A full-stack application which is built through many AI agents.
+          A full-stack demo app for discovering listings, booking trips, and managing stays—similar in spirit to Airbnb, built for explorinf AI agents and portfolios
           </p>
           <a
             href="https://github.com/tzoanphys/ai-coding-power-demo"
