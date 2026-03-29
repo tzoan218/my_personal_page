@@ -294,7 +294,7 @@ function ProjectsPage() {
             BWithB
           </h3>
           <p style={{ marginBottom: "12px", lineHeight: "1.6" }}>
-          A full-stack demo app for discovering listings, booking trips, and managing stays—similar in spirit to Airbnb, built for learning and portfolios,
+          A full-stack demo app for discovering listings, booking trips, and managing stays—similar in spirit to Airbnb, built for learning and portfolios. 
           </p>
           <a
             href="https://github.com/tzoanphys/ai-coding-power-demo"
