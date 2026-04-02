@@ -15,8 +15,9 @@ const skillNotes = {
   'Software Engineering Stack': [
     { title: 'Java Spring Boot Notes', pdfPath: '/notes/java_spring.pdf' },
     { title: 'Basic Frontend React Notes', pdfPath: '/notes/Basic_Frontend_react.pdf' },
-    { title: ' Basic SQL Notes ', pdfPath: '/notes/sql.pdf' }
-
+    { title: ' Basic SQL Notes ', pdfPath: '/notes/sql.pdf' },
+    { title: 'Docker and Kubernetes Notes', pdfPath: '/notes/docker_kubernetes.pdf' }
+  
   ],
   'Machine Learning': [
     { title: 'Notes for Understanding Machine Learning', pdfPath: '/notes/ml_notes.pdf' }
