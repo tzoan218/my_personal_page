@@ -16,7 +16,7 @@ const skillNotes = {
     { title: 'Java Spring Boot Notes', pdfPath: '/notes/java_spring.pdf' },
     { title: 'Basic Frontend React Notes', pdfPath: '/notes/Basic_Frontend_react.pdf' },
     { title: ' Basic SQL Notes ', pdfPath: '/notes/sql.pdf' },
-    { title: 'Docker and Kubernetes Notes', pdfPath: '/notes/docker_kubernetes.pdf' }
+    { title: 'Docker and Kubernetes Notes', pdfPath: '/notes/docker.pdf' }
   
   ],
   'Machine Learning': [
