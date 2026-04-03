@@ -57,7 +57,7 @@ function NotesPage() {
             fontSize: '16px',
           }}
         >
-          Choose a topic to see the notes for that area.
+          Here you can find some notes.
         </p>
 
         <div style={boxStyle}>
