@@ -8,6 +8,7 @@ import CareerPage from './CareerPage';
 import ProjectsPage from './ProjectsPage';
 import PublicationsPage from './PublicationsPage';
 import ContactPage from './ContactPage';
+import NotesPage from './NotesPage';
 
 function App() {
   const location = useLocation();
@@ -127,15 +128,19 @@ function App() {
           </h2>
         </div>
 
-        {/* Fields of Interest Section */}
         <div style={{ marginTop: "10px" }}>
-          {['Physics', 'Python', 'Machine Learning', 'Software Engineering Stack', 'Numerical Analysis'].map((skill) => {
-            const skillUrl = `/skill/${encodeURIComponent(skill)}`;
-            const isActive = location.pathname === skillUrl;
+          {[
+            { label: "Home", to: "/" },
+            { label: "Notes", to: "/notes" },
+          ].map(({ label, to }) => {
+            const isActive =
+              to === "/"
+                ? location.pathname === "/"
+                : location.pathname === to || location.pathname.startsWith(`${to}/`);
             return (
               <Link
-                key={skill}
-                to={skillUrl}
+                key={to}
+                to={to}
                 style={{
                   cursor: "pointer",
                   margin: "8px 0",
@@ -163,7 +168,7 @@ function App() {
                   }
                 }}
               >
-                {skill}
+                {label}
               </Link>
             );
           })}
@@ -348,6 +353,8 @@ function App() {
         >
           <Routes>
             <Route path="/skill/:skillName" element={<SkillPage />} />
+            <Route path="/notes/:groupName" element={<NotesPage />} />
+            <Route path="/notes" element={<NotesPage />} />
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/career" element={<CareerPage />} />

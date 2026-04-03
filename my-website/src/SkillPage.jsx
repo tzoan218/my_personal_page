@@ -1,32 +1,8 @@
 import { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import './App.css';
-
-// Map skills to their notes (array of objects with title and pdfPath)
-// Each skill can have multiple notes
-const skillNotes = {
-  'Python': [
-    { title: 'Python notes', pdfPath: '/notes/python.pdf' },
-    { title: 'Big Data Analytics with Hadoop', pdfPath: '/notes/spark.pdf' }
-  ],
-  'Java & Spring Boot': [
-    { title: 'Java Spring Boot Notes', pdfPath: '/notes/java_spring.pdf' }
-  ],
-  'Software Engineering Stack': [
-    { title: 'Java Spring Boot Notes', pdfPath: '/notes/java_spring.pdf' },
-    { title: 'Basic Frontend React Notes', pdfPath: '/notes/Basic_Frontend_react.pdf' },
-    { title: ' Basic SQL Notes ', pdfPath: '/notes/sql.pdf' },
-    { title: 'Docker and Kubernetes Notes', pdfPath: '/notes/docker.pdf' }
-  
-  ],
-  'Machine Learning': [
-    { title: 'Notes for Understanding Machine Learning', pdfPath: '/notes/ml_notes.pdf' }
-  ],
-  'Numerical Analysis': [],
-  'Physics': [
-    { title: 'No-Scale Supergravity Notes', pdfPath: '/notes/no-scale-notes.pdf' }
-  ]
-};
+import { NOTE_GROUP_ORDER, getNotesForGroup, skillNotes } from './skillNotes';
+import { NoteFileIcon } from './NoteFileIcon';
 
 function SkillPage() {
   const { skillName } = useParams();
@@ -35,7 +11,9 @@ function SkillPage() {
   
   // Decode the skill name from URL (handles spaces and special characters)
   const decodedSkillName = decodeURIComponent(skillName);
-  const notes = skillNotes[decodedSkillName] || [];
+  const notes = NOTE_GROUP_ORDER.includes(decodedSkillName)
+    ? getNotesForGroup(decodedSkillName)
+    : skillNotes[decodedSkillName] || [];
 
   return (
     <div style={{ width: "100%", textAlign: "center" }}>
@@ -140,7 +118,7 @@ function SkillPage() {
                     alignItems: "center",
                     gap: "10px"
                   }}>
-                    <span>📄</span>
+                    <NoteFileIcon />
                     <span>{note.title}</span>
                   </div>
                 </li>
