@@ -131,12 +131,15 @@ function App() {
         <div style={{ marginTop: "10px" }}>
           {[
             { label: "Home", to: "/" },
-            { label: "Notes", to: "/notes" },
-          ].map(({ label, to }) => {
+            { label: "Notes", to: "/notes", exact: true },
+            { label: "Physics (education)", to: "/notes/Physics (education)" },
+          ].map(({ label, to, exact }) => {
             const isActive =
               to === "/"
                 ? location.pathname === "/"
-                : location.pathname === to || location.pathname.startsWith(`${to}/`);
+                : exact
+                  ? location.pathname === to
+                  : location.pathname === to || location.pathname.startsWith(`${to}/`);
             return (
               <Link
                 key={to}
@@ -353,8 +356,7 @@ function App() {
         >
           <Routes>
             <Route path="/skill/:skillName" element={<SkillPage />} />
-            <Route path="/notes/:groupName" element={<NotesPage />} />
-            <Route path="/notes" element={<NotesPage />} />
+            <Route path="/notes/*" element={<NotesPage />} />
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/career" element={<CareerPage />} />
