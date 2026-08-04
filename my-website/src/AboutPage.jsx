@@ -16,7 +16,7 @@ function AboutPage() {
       <div
         style={{
           display: "flex",
-          alignItems: "center",
+          alignItems: "flex-start",
           justifyContent: "center",
           gap: "40px",
           marginBottom: "40px",
@@ -25,11 +25,12 @@ function AboutPage() {
       >
         <div
           style={{
-            flexShrink: 0
+            flexShrink: 0,
+            marginTop: "4px"
           }}
         >
           <img
-            src="/img_001_linkdl_002.jpg"
+            src="/WhatsApp Image 2024-02-03 at 16.34.03_a958c0f0.jpg"
             alt="Ioanna Stamou"
             style={{
               width: "160px",
